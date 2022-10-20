@@ -19,7 +19,7 @@ namespace API.Controllers
         [Route("")]
         public async Task<IActionResult> GetLatancies([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
         {
-            var result = await _latencyService.GetLatencyTestResult(startDate, endDate);
+            var result = await _latencyService.GetLatencyResult(startDate, endDate);
             return Ok(result);
         }
     }
