@@ -55,6 +55,6 @@ namespace DataUnitTest
             Assert.True(result.AverageLatancies.Count == result.AverageLatancies.Select(al => al.ServiceId).Distinct().Count());
         }
 
-        //TODO add tests to check if errors uccurs correctly
+        //TODO add tests to check if errors are handleded correctly
     }
 }

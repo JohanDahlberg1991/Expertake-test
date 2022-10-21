@@ -17,7 +17,7 @@ namespace Data.Service
             var averageLantacies = new List<LatencyDataItem>();
 
 
-            //TODO check if dates are not null/empty and if startDate is before endDate
+            //TODO check if dates are not null/empty and if startDate is later than endDate
             List<DateTime> allDates = new List<DateTime>();
 
             for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
@@ -36,10 +36,11 @@ namespace Data.Service
                 averageLantacies.Add(item);
             }
 
-            //TODO have a defaultServiceResult with error code for different scenarios
+            //TODO have a defaultServiceResult class with error code for different scenarios
             return LatencyResult.Create(averageLantacies, startDate, endDate);
         }
 
+        //simmulate fetching the data from the database/repository
         const string url = "http://latencyapi-env.eba-kqb2ph3i.eu-west-1.elasticbeanstalk.com/latencies";
         private IEnumerable<LatencyRequestItem> GetLantencyDataForDate(DateTime date)
         {
